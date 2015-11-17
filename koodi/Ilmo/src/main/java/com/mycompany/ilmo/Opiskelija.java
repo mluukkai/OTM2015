@@ -48,7 +48,15 @@ public class Opiskelija {
         
         return null;
     }
-    
+
+    public String getNimi() {
+        return nimi;
+    }
+
+    public String getPaaAine() {
+        return paaAine;
+    }
+   
     @Override
     public String toString() {
         String ilmot = "";
