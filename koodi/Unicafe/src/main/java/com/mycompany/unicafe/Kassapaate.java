@@ -31,7 +31,7 @@ public class Kassapaate {
         }
     }
  
-    public boolean syoEdullisesti(Matkakortti kortti) {
+    public boolean syoEdullisesti(Maksukortti kortti) {
         if (kortti.saldo() >= 240) {
             kortti.otaRahaa(240);
             this.edulliset++;
@@ -41,7 +41,7 @@ public class Kassapaate {
         }
     }
  
-    public boolean syoMaukkaasti(Matkakortti kortti) {
+    public boolean syoMaukkaasti(Maksukortti kortti) {
         if (kortti.saldo() >= 400) {
             kortti.otaRahaa(400);
             this.maukkaat++;
@@ -51,7 +51,7 @@ public class Kassapaate {
         }
     }
  
-    public void lataaRahaaKortille(Matkakortti kortti, int summa) {
+    public void lataaRahaaKortille(Maksukortti kortti, int summa) {
         if (summa >= 0) {
             kortti.lataaRahaa(summa);
             this.kassassaRahaa += summa;

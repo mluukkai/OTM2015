@@ -4,7 +4,7 @@ public class Paaohjelma {
 
     public static void main(String[] args) {
         Kassapaate unicafeExactum = new Kassapaate();
-        Matkakortti kortti = new Matkakortti(10000);
+        Maksukortti kortti = new Maksukortti(10000);
         
         unicafeExactum.syoEdullisesti(kortti);
         
