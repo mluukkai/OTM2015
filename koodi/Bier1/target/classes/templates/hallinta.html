@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <h1>Hallinta</h1>
+
+        <h2>Tuotevalikoima</h2>
+        
+        <table>
+            <tr>
+                <td></td>
+                <td><b>hinta</b></td>
+                <td><b>saldo</b></td>
+            </tr>
+            <tr th:each="tuote : ${tuotteet}">
+                <td>
+                    <span th:text="${tuote.getNimi()}"></span>
+                </td>
+                <td>
+                    <span th:text="${tuote.getHinta()}"></span>
+                </td>
+                <td>
+                    <span th:text="${tuote.getSaldo()}"></span> 
+                </td>                
+
+            </tr>
+        </table>
+        
+        <h2>Uuden tuotteen lisääminen</h2>
+
+        <div id="uudenLisays">
+
+             <form action="hallinta" method="post">
+
+                <table>
+                    <tr>
+                        <td>tuotteen nimi</td>
+                        <td><input type="text" name="nimi"/></td>
+                    </tr>
+                    <tr>
+                        <td>hinta</td>
+                        <td><input type="text" name="hinta"/></td>
+                    </tr>
+                    <tr>
+                        <td>varastosaldo</td>
+                        <td><input type="text" name="saldo"/></td>
+                    </tr>
+                </table>              
+
+                <p>
+                    <button>lisaa</button>
+                </p>
+
+            </form>
+
+        </div>
+
+        <h2>Maksuliikenne</h2>        
+        
+        <ul>
+            <li th:each="maksu : ${maksut}">
+                <span th:text="${maksu}"></span> 
+            </li>
+        </ul>
+        
+        <h2>Toimitukset</h2>
+        <ul>
+            <li th:each="toimitus : ${toimitukset}">
+                <span th:text="${toimitus}"></span> 
+            </li>
+        </ul>        
+    </body>
+</html>

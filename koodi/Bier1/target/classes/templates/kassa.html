@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <h1>Maksa ostokset</h1>      
+        <h2>Ostoskorissa</h2>
+
+        <ul class="ostoskori">
+
+            <li th:each="ostos : ${kori.ostokset()}">
+ 
+                <span th:text="${ostos.lukumaara()}"></span>
+                * <span th:text="${ostos.tuotteenNimi()}"></span>
+                hinta <span th:text="${ostos.hinta()}"></span> euroa
+ 
+                    
+                <form method="POST" action="/poista">
+                    <input type="hidden" name="id" th:value="*{ostos.tuotteenId()}" />
+                    <button>
+                        poista korista
+                    </button>
+                </form>                                       
+            </li>
+        </ul>
+
+        <div id="korissa">
+            <p> Ostoskorissa tuotteita <span th:text="${kori.tuotteitaKorissa()}"> </span> 
+                ja niiden yhteenlaskettu hinta on
+                <span th:text="${kori.hinta()}"></span> euroa.
+            </p>                        
+        </div>                              
+
+        <h2>Maksajan tiedot</h2>
+
+        <div id="maksutiedot">
+            <form action="kassa" method="POST">
+                <table>
+                    <tr>
+                        <td>nimi</td>
+                        <td>
+                            <input type="text" name="nimi"/>
+                        </td>
+                        <tr>
+                            <td>osoite</td>
+                            <td>
+                                <input type="text" name="osoite"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>luottokorttinumero</td>
+                            <td><input type="text" name="luottokorttinumero"/></td>
+                        </tr>                        
+                    </tr>
+                </table>                
+                <p>
+                    <button> 
+                        suorita maksu
+                    </button>
+                </p>                
+            </form>
+        </div>
+
+        <p> <a href="/tuotteet">Palaa tekemään ostoksia</a> </p>
+
+        <p> <a href="/tyhjenna">Tyhjenna ostoskori</a> </p>
+
+    </body>
+</html>

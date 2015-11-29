@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+        <h1>Vahvistus maksusta</h1>
+               
+        <p>
+            Luottokortiltasi on veloitettu <span th:text="${hinta}"></span> euroa
+        </p> 
+           
+        <p>
+            tilaamasi tuotteet toimitetaan osoitteeseesi <em>
+                <span th:text="${osoite}"></span>
+            </em>
+        </p>   
+        
+        <p><a href="/">palaa etusivulle</a></p>            
+        
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <h1>Tuotteet</h1>
+
+        <ul>
+            <li th:each="tuote : ${tuotteet}">
+                <span th:text="${tuote.getNimi()}"></span>
+                hinta <span th:text="${tuote.getHinta()}"></span> euroa                 
+                <form method="POST" action="/tuotteet">
+                    <input type="hidden" name="id" th:value="*{tuote.getId()}" />
+                    <button>
+                        lisää koriin
+                    </button>
+                </form>       
+            </li>
+        </ul>
+        
+        <div id="korissa">
+            <p> Ostoskorissa tuotteita <span th:text="${kori.tuotteitaKorissa()}"> </span> 
+                ja niiden yhteenlaskettu hinta on
+                <span th:text="${kori.hinta()}"></span> euroa.
+            </p>                        
+        </div> 
+        
+        <p> <a href="kassa">maksa ostokset</a> </p>        
+        
+        <p> <a href="tyhjenna">tyhjennä ostoskori</a> </p>        
+    </body>
+</html>
