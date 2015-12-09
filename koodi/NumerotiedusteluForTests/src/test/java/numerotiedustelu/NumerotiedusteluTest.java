@@ -40,7 +40,7 @@ public class NumerotiedusteluTest {
         
         String tulos = tulosvirta.toString();
         
-        assertTrue("ohjelman tulostus oli: "+tulos, tulos.contains("ei ole"));
+        assertTrue("ohjelman tulostus oli: "+tulos, tulos.contains("ei löytynyt"));
     }    
     
     private String muodosta(String... lines) {

@@ -68,7 +68,7 @@ public class NumeroJaOsoitePalvelu {
         }
  
         for (String numero : h.getPuhelinnumerot()) {
-            henkilotNumeronMukaan.remove("");
+            henkilotNumeronMukaan.remove("wtf is this?");
         }
  
         henkilotNimenMukaan.remove(nimi);
