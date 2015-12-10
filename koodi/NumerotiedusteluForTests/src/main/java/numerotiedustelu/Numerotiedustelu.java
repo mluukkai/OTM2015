@@ -20,6 +20,7 @@ public class Numerotiedustelu {
         komennot.put("4", "4 lisää osoite");
         komennot.put("5", "5 hae henkilön tiedot");
         komennot.put("6", "6 poista henkilön tiedot");
+        komennot.put("7", "7 filtteröity listaus");
         komennot.put("x", "x lopeta");
     }
  
@@ -49,7 +50,9 @@ public class Numerotiedustelu {
                 haeTeidot();
             } else if (komento.equals("6")) {
                 poistaHenkilo();
-            } 
+            } else if (komento.equals("7")) {
+                listaus();
+            }
  
         }
     }
@@ -121,7 +124,7 @@ public class Numerotiedustelu {
         tulostaPuhelinnumerot(henkilo);
     }
  
- private void tulostaOsoite(Henkilo henkilo) {
+    private void tulostaOsoite(Henkilo henkilo) {
         if (henkilo.getKatu() == null || henkilo.getKaupunki() == null) {
             System.out.println("  osoite ei tiedossa");
             return;
@@ -148,4 +151,19 @@ public class Numerotiedustelu {
         palvelu.poista(nimi);
     }
  
+    private void listaus() {
+        System.out.print("hakusana (jos tyhjä, listataan kaikki): ");
+        String hakusana = lukija.nextLine();
+        Set<Henkilo> loytyi = palvelu.hae(hakusana);
+        if (loytyi.isEmpty()) {
+            System.out.println(" ei löytynyt");
+            return;
+        }
+ 
+        for (Henkilo h : palvelu.hae(hakusana)) {
+            System.out.println();
+            System.out.println(" " + h.getNimi());
+            tulostaHenkilonTiedot(h);
+        }
+    }    
 }
